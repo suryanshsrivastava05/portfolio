@@ -25,7 +25,7 @@ export default function HeroSection() {
           <div className="max-w-2xl">
             <div className="mb-6">
               <span className="badge badge-available">
-                Video Editor & Motion Designer
+                Creative Developer
               </span>
             </div>
 
@@ -33,11 +33,11 @@ export default function HeroSection() {
               className="font-[family-name:var(--font-display)] font-bold text-foreground mb-6 leading-[1.1]"
               style={{ fontSize: 'var(--fs-display)' }}
             >
-              I&apos;m a versatile video editor specializing in motion graphics, post-production, and engaging visual storytelling.
+              Crafting immersive digital experiences with code, design, and a touch of magic.
             </h1>
 
             <p className="text-text-muted text-lg mb-10 max-w-lg">
-              Let&apos;s build something great!
+              I help brands build beautiful, functional, and user-centric web applications.
             </p>
 
             {/* CTA Buttons */}

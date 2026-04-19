@@ -26,15 +26,14 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: 'Suryansh Srivastava — Video Editor & Motion Designer',
-    template: '%s | Suryansh Srivastava',
-  },
-  description:
-    'Physics-driven portfolio showcasing video editing, motion graphics, post-production, and digital experiences that defy gravity.',
-  keywords: ['video editor', 'motion designer', 'portfolio', 'creative', 'post-production', 'filmmaking'],
+  title: 'Suryansh Srivastava — Creative Developer',
+  description: 'Crafting immersive digital experiences with code, design, and a touch of magic.',
+  keywords: ['creative developer', 'frontend developer', 'react', 'nextjs', 'portfolio', 'ui/ux'],
   authors: [{ name: 'Suryansh Srivastava' }],
   openGraph: {
+    title: 'Suryansh Srivastava — Creative Developer',
+    description: 'Crafting immersive digital experiences with code, design, and a touch of magic.',
+    url: 'https://suryanshsrivastava.com',
     type: 'website',
     locale: 'en_US',
     siteName: 'Suryansh Srivastava',
@@ -42,6 +41,13 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 

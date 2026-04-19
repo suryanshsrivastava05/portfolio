@@ -11,33 +11,33 @@ gsap.registerPlugin(ScrollTrigger);
 
 const mainServices = [
   {
-    title: 'Video Editing',
-    description: 'Crafting breathtaking, fast-paced edits that boost engagement, retention, and growth, perfectly aligned with your brand.',
-    icon: Film,
+    title: 'Web Development',
+    description: 'Building fast, scalable, and responsive web applications using modern technologies like React, Next.js, and Node.js.',
+    icon: MonitorPlay,
     color: '#6c63ff',
   },
   {
-    title: 'Motion Graphics',
-    description: "Designing bold, engaging, and dynamic motion graphics that elevate your content and captivate your audience.",
-    icon: MonitorPlay,
+    title: 'UI/UX Design',
+    description: "Creating intuitive and visually stunning user interfaces that provide seamless and engaging user experiences.",
+    icon: Palette,
     color: '#ff6584',
   },
   {
-    title: 'Color Grading',
-    description: "Enhancing the visual mood of your footage with professional, cinematic color grading to tell a better story.",
+    title: 'Performance Optimization',
+    description: "Improving website speed, accessibility, and SEO to ensure maximum reach and conversion rates.",
     icon: Wand2,
     color: '#00f5d4',
   },
   {
-    title: 'Social Media Design',
-    description: 'Creating high-converting thumbnails, carousel posts, and promotional flyers for events and digital campaigns.',
-    icon: Palette,
+    title: 'Interactive Experiences',
+    description: 'Developing immersive digital experiences with WebGL, Framer Motion, and GSAP animations.',
+    icon: Film,
     color: '#6c63ff',
   },
 ];
 
-const additionalServicesLeft = ['Short-Form Reels', 'YouTube Editing', 'Event Promos', 'Documentaries'];
-const additionalServicesRight = ['Logo Animations', 'Sound Design', 'VFX', 'Social Media Strategy', 'Thumbnails', 'Optimization'];
+const additionalServicesLeft = ['React / Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'];
+const additionalServicesRight = ['Figma', 'Responsive Design', 'SEO Optimization', 'Web Accessibility'];
 
 export default function ServicesSection() {
   const containerRef = useRef<HTMLDivElement>(null);

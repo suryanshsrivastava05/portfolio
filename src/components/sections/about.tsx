@@ -11,14 +11,14 @@ import { ArrowRight } from 'lucide-react';
 gsap.registerPlugin(ScrollTrigger);
 
 const skillPills = [
-  'Video Editing', 'Motion Graphics', 'Color Grading', 'Premiere Pro', 'After Effects', 'DaVinci Resolve',
+  'React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Node.js',
 ];
 
 const experience = [
-  { role: 'Freelance', company: 'Independent', year: '2025' },
-  { role: 'Lead Video Editor', company: 'Creative Studio', year: '2024' },
-  { role: 'Motion Designer', company: 'Agency XYZ', year: '2023' },
-  { role: 'Content Creator', company: 'Media House', year: '2021' },
+  { role: 'Senior Developer', company: 'Tech Corp', year: '2024' },
+  { role: 'Frontend Engineer', company: 'Digital Agency', year: '2022' },
+  { role: 'Web Developer', company: 'Startup Inc', year: '2020' },
+  { role: 'UI/UX Designer', company: 'Creative Studio', year: '2019' },
 ];
 
 export default function AboutSection() {
@@ -52,7 +52,7 @@ export default function AboutSection() {
       <div ref={containerRef} className="section-container">
         {/* Section badge */}
         <div className="text-center mb-4 about-animate">
-          <span className="badge badge-available">Expert Video Editor</span>
+          <span className="badge badge-available">Creative Developer</span>
         </div>
 
         {/* Section title */}
@@ -60,7 +60,7 @@ export default function AboutSection() {
           className="font-[family-name:var(--font-display)] font-bold text-center mb-16 about-animate"
           style={{ fontSize: 'var(--fs-h2)' }}
         >
-          Suryansh Srivastava, Your Editor
+          Suryansh Srivastava, Your Developer
         </h2>
 
         {/* Main card */}
@@ -79,12 +79,12 @@ export default function AboutSection() {
               <div>
                 <h3 className="text-sm text-text-muted uppercase tracking-wider mb-2">Hello I am Suryansh Srivastava</h3>
                 <p className="text-lg font-semibold text-foreground font-[family-name:var(--font-display)]">
-                  Video Editor & Motion Designer Based in India.
+                  Creative Developer Based in India.
                 </p>
               </div>
 
               <p className="text-text-muted leading-relaxed">
-                I&apos;m Suryansh Srivastava, a dedicated Video Editor & Motion Designer. I specialize in creative storytelling with seamless post-production execution to craft exceptional visual experiences.
+                Passionate about building beautiful, functional, and user-centric web applications. With a background in both design and development, I bridge the gap between aesthetics and performance.
               </p>
 
               <MagneticButton href="/contact" variant="outline" className="text-sm">
