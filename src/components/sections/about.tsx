@@ -1,14 +1,8 @@
 'use client';
 
-import { useRef } from 'react';
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import FloatingAvatar from '@/components/physics/floating-avatar';
 import MagneticButton from '@/components/ui/magnetic-button';
 import { ArrowRight } from 'lucide-react';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const skillPills = [
   'React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Node.js',
@@ -22,36 +16,11 @@ const experience = [
 ];
 
 export default function AboutSection() {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useGSAP(
-    () => {
-      if (!containerRef.current) return;
-      gsap.fromTo(
-        containerRef.current.querySelectorAll('.about-animate'),
-        { y: 40, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.8,
-          stagger: 0.1,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: 'top 75%',
-            toggleActions: 'play none none none',
-          },
-        }
-      );
-    },
-    { scope: containerRef }
-  );
-
   return (
-    <section id="about" className="section">
-      <div ref={containerRef} className="section-container">
+    <section id="about" className="section relative z-10 py-24">
+      <div className="section-container">
         {/* Section badge */}
-        <div className="text-center mb-4 about-animate">
+        <div className="text-center mb-4">
           <span className="badge badge-available">Creative Developer</span>
         </div>
 

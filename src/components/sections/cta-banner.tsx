@@ -27,25 +27,25 @@ export default function CtaBanner() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto mb-12">
           <div className="card p-8 hover:border-accent/30 transition-all duration-500">
             <h3 className="text-lg font-bold font-[family-name:var(--font-display)] mb-2 text-foreground">
-              Video Editing
+              Web Development
             </h3>
             <p className="text-2xl font-black gradient-text font-[family-name:var(--font-display)] mb-4">
-              Starting from $499
+              Starting from $999
             </p>
             <p className="text-text-muted text-sm leading-relaxed">
-              Showcasing sleek, high-retention edits tailored for maximum engagement.
+              Building fast, scalable, and responsive web applications from the ground up.
             </p>
           </div>
 
           <div className="card p-8 hover:border-accent/30 transition-all duration-500">
             <h3 className="text-lg font-bold font-[family-name:var(--font-display)] mb-2 text-foreground">
-              Motion Graphics
+              UI/UX Design
             </h3>
             <p className="text-2xl font-black gradient-text font-[family-name:var(--font-display)] mb-4">
-              Starting from $899
+              Starting from $499
             </p>
             <p className="text-text-muted text-sm leading-relaxed">
-              Building visually stunning, dynamic animations that elevate brands.
+              Creating intuitive and visually stunning user interfaces that convert.
             </p>
           </div>
         </div>

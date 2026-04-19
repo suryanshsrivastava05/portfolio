@@ -1,15 +1,10 @@
 'use client';
 
-import { useRef, useCallback } from 'react';
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useCallback } from 'react';
 import { ExternalLink, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import MagneticButton from '@/components/ui/magnetic-button';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
@@ -47,33 +42,6 @@ const projects = [
 ];
 
 export default function ProjectsGrid() {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useGSAP(
-    () => {
-      if (!containerRef.current) return;
-      const cards = containerRef.current.querySelectorAll('.project-card');
-      cards.forEach((card, i) => {
-        gsap.fromTo(
-          card,
-          { y: 60, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.7,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: card,
-              start: 'top 85%',
-              toggleActions: 'play none none none',
-            },
-            delay: i * 0.1,
-          }
-        );
-      });
-    },
-    { scope: containerRef }
-  );
 
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     const card = e.currentTarget;
@@ -95,8 +63,8 @@ export default function ProjectsGrid() {
   }, []);
 
   return (
-    <section id="projects" className="section">
-      <div ref={containerRef} className="section-container">
+    <section id="projects" className="section relative z-10 py-24">
+      <div className="section-container">
         {/* Badge */}
         <div className="text-center mb-4">
           <span className="badge badge-available">Recent Projects</span>

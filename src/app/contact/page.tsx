@@ -40,19 +40,19 @@ export default function ContactPage() {
             <form className="space-y-6">
               <div>
                 <label htmlFor="name" className="text-sm text-text-muted mb-2 block">Name</label>
-                <input id="name" type="text" className="input" placeholder="Your name" />
+                <input id="name" type="text" className="input p-4 w-full bg-surface border-border rounded-lg" placeholder="Your name" />
               </div>
               <div>
                 <label htmlFor="email" className="text-sm text-text-muted mb-2 block">Email</label>
-                <input id="email" type="email" className="input" placeholder="you@example.com" />
+                <input id="email" type="email" className="input p-4 w-full bg-surface border-border rounded-lg" placeholder="you@example.com" />
               </div>
               <div>
                 <label htmlFor="subject" className="text-sm text-text-muted mb-2 block">Subject</label>
-                <input id="subject" type="text" className="input" placeholder="Project inquiry" />
+                <input id="subject" type="text" className="input p-4 w-full bg-surface border-border rounded-lg" placeholder="Project inquiry" />
               </div>
               <div>
                 <label htmlFor="message" className="text-sm text-text-muted mb-2 block">Message</label>
-                <textarea id="message" className="input min-h-[150px] resize-y" placeholder="Tell me about your project..." />
+                <textarea id="message" className="input p-4 w-full bg-surface border-border rounded-lg min-h-[150px] resize-y" placeholder="Tell me about your project..." />
               </div>
               <button type="submit" className="btn btn-primary w-full justify-center">
                 Send Message

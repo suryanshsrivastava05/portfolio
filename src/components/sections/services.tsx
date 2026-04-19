@@ -1,13 +1,7 @@
 'use client';
 
-import { useRef } from 'react';
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Film, MonitorPlay, Wand2, Palette } from 'lucide-react';
 import MagneticButton from '@/components/ui/magnetic-button';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const mainServices = [
   {
@@ -40,39 +34,11 @@ const additionalServicesLeft = ['React / Next.js', 'TypeScript', 'Tailwind CSS',
 const additionalServicesRight = ['Figma', 'Responsive Design', 'SEO Optimization', 'Web Accessibility'];
 
 export default function ServicesSection() {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useGSAP(
-    () => {
-      if (!containerRef.current) return;
-      const cards = containerRef.current.querySelectorAll('.service-animate');
-      cards.forEach((card, i) => {
-        gsap.fromTo(
-          card,
-          { y: 40, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.6,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: card,
-              start: 'top 85%',
-              toggleActions: 'play none none none',
-            },
-            delay: i * 0.08,
-          }
-        );
-      });
-    },
-    { scope: containerRef }
-  );
-
   return (
-    <section id="services" className="section">
-      <div ref={containerRef} className="section-container">
+    <section id="services" className="section relative z-10 py-24">
+      <div className="section-container">
         {/* Badge */}
-        <div className="text-center mb-4 service-animate">
+        <div className="text-center mb-4">
           <span className="badge badge-available">Design services</span>
         </div>
 
