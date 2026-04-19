@@ -1,0 +1,437 @@
+@import "tailwindcss";
+
+/* ============================================
+   DESIGN SYSTEM — PhysicsPortfolio
+   Dark luxury × sci-fi aesthetic
+   ============================================ */
+
+:root {
+  /* Color Palette */
+  --bg: #060608;
+  --surface: #0f0f14;
+  --card: #13131a;
+  --accent: #6c63ff;
+  --accent-secondary: #ff6584;
+  --accent-glow: #00f5d4;
+  --text: #f0f0f5;
+  --text-muted: #6b6b80;
+  --border: rgba(255, 255, 255, 0.06);
+  --border-hover: rgba(255, 255, 255, 0.12);
+
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-blur: 20px;
+
+  /* Typography Scale — Fluid clamp() */
+  --fs-display: clamp(2.5rem, 6vw, 5rem);
+  --fs-h1: clamp(2rem, 5vw, 4rem);
+  --fs-h2: clamp(1.5rem, 4vw, 3rem);
+  --fs-h3: clamp(1.25rem, 2.5vw, 1.75rem);
+  --fs-body: clamp(0.938rem, 1.2vw, 1.125rem);
+  --fs-small: clamp(0.813rem, 1vw, 0.938rem);
+  --fs-xs: clamp(0.688rem, 0.8vw, 0.813rem);
+
+  /* Spacing */
+  --section-padding: clamp(4rem, 10vh, 8rem);
+
+  /* Radius */
+  --radius-card: 20px;
+  --radius-pill: 999px;
+  --radius-input: 12px;
+
+  /* Transitions */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-fast: 200ms;
+  --duration-normal: 400ms;
+  --duration-slow: 800ms;
+}
+
+/* ============================================
+   TAILWIND V4 THEME EXTENSION
+   ============================================ */
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--text);
+  --color-surface: var(--surface);
+  --color-card: var(--card);
+  --color-accent: var(--accent);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-accent-glow: var(--accent-glow);
+  --color-text-muted: var(--text-muted);
+  --color-border: var(--border);
+  --color-border-hover: var(--border-hover);
+  --color-glass-bg: var(--glass-bg);
+  --color-glass-border: var(--glass-border);
+
+  --font-display: "Syne", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --radius-card: 20px;
+  --radius-pill: 999px;
+  --radius-input: 12px;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-glow: glow 2s ease-in-out infinite alternate;
+  --animate-shimmer: shimmer 2.5s linear infinite;
+  --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
+  --animate-orbit: orbit 20s linear infinite;
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-spin-slow: spin 20s linear infinite;
+}
+
+/* ============================================
+   KEYFRAMES
+   ============================================ */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px rgba(108, 99, 255, 0.3), 0 0 20px rgba(108, 99, 255, 0.15); }
+  to { text-shadow: 0 0 20px rgba(108, 99, 255, 0.5), 0 0 40px rgba(108, 99, 255, 0.25); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(0, 245, 212, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(0, 245, 212, 0.6); }
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(var(--orbit-radius, 80px)) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(var(--orbit-radius, 80px)) rotate(-360deg); }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes draw-line {
+  from { stroke-dashoffset: var(--line-length, 1000); }
+  to { stroke-dashoffset: 0; }
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) var(--surface);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.7;
+  overflow-x: hidden;
+  cursor: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--surface);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 999px;
+}
+
+/* Selection */
+::selection {
+  background: rgba(108, 99, 255, 0.3);
+  color: var(--text);
+}
+
+/* ============================================
+   SCROLL PROGRESS BAR
+   ============================================ */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  z-index: 9999;
+  background: transparent;
+  pointer-events: none;
+}
+
+.scroll-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-glow));
+  transition: width 50ms linear;
+}
+
+/* ============================================
+   GLASSMORPHISM UTILITY
+   ============================================ */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* ============================================
+   GRADIENT UTILITIES
+   ============================================ */
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-warm {
+  background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-border {
+  position: relative;
+}
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ============================================
+   GLOW EFFECTS
+   ============================================ */
+.glow-accent {
+  box-shadow: 0 0 30px rgba(108, 99, 255, 0.15);
+}
+
+.glow-accent-hover:hover {
+  box-shadow: 0 0 40px rgba(108, 99, 255, 0.25);
+}
+
+.glow-text {
+  text-shadow: 0 0 20px rgba(108, 99, 255, 0.4);
+}
+
+/* ============================================
+   SECTION STYLES
+   ============================================ */
+.section {
+  padding: var(--section-padding) 0;
+  position: relative;
+}
+
+.section-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 4vw, 2rem);
+}
+
+/* ============================================
+   CARD STYLES
+   ============================================ */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  transition: border-color var(--duration-normal) var(--ease-out-expo),
+              box-shadow var(--duration-normal) var(--ease-out-expo),
+              transform var(--duration-normal) var(--ease-out-expo);
+}
+
+.card:hover {
+  border-color: var(--border-hover);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   BUTTON STYLES
+   ============================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--fs-small);
+  cursor: none;
+  transition: all var(--duration-normal) var(--ease-out-expo);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  border: none;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: #7b73ff;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 40px rgba(108, 99, 255, 0.3);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border-hover);
+}
+.btn-outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-muted);
+  padding: 0.5rem 1rem;
+}
+.btn-ghost:hover {
+  color: var(--text);
+}
+
+/* ============================================
+   FORM INPUTS
+   ============================================ */
+.input {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-input);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  outline: none;
+  transition: border-color var(--duration-fast) ease,
+              box-shadow var(--duration-fast) ease;
+}
+
+.input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.15);
+}
+
+.input::placeholder {
+  color: var(--text-muted);
+}
+
+/* ============================================
+   BADGE
+   ============================================ */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.875rem;
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.badge-available {
+  background: rgba(0, 245, 212, 0.1);
+  color: var(--accent-glow);
+  border: 1px solid rgba(0, 245, 212, 0.2);
+}
+
+.badge-available::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-glow);
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  body {
+    cursor: auto;
+  }
+}
+
+/* ============================================
+   MOBILE CURSOR OVERRIDE
+   ============================================ */
+@media (pointer: coarse) {
+  body {
+    cursor: auto;
+  }
+}
+
+/* ============================================
+   RESPONSIVE HELPERS
+   ============================================ */
+@media (max-width: 768px) {
+  .section {
+    padding: clamp(3rem, 8vh, 5rem) 0;
+  }
+}
